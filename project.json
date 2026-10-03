@@ -1,0 +1,17 @@
+{
+  "name": "Release Control",
+  "skills": "Deployment promotion, approval gates, release audit trail",
+  "entity": "release",
+  "fields": [
+    "service",
+    "version",
+    "environment"
+  ],
+  "example": {
+    "service": "checkout",
+    "version": "1.0.0",
+    "environment": "dev"
+  },
+  "kind": "releases",
+  "port": 8108
+}
