@@ -13,5 +13,17 @@
     "environment": "dev"
   },
   "kind": "releases",
-  "port": 8108
+  "port": 8108,
+  "description": "Model release promotions with staging approval and an audit trail.",
+  "accent": "#9333ea",
+  "stack": [
+    "Python",
+    "FastAPI",
+    "Angular",
+    "TypeScript",
+    "SQLite",
+    "Docker",
+    "Kubernetes",
+    "GitHub Actions"
+  ]
 }
