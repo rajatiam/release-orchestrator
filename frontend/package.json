@@ -1,5 +1,5 @@
 {
-  "name": "08-release-control",
+  "name": "release-orchestrator",
   "version": "2.0.0",
   "private": true,
   "scripts": {

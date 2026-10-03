@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: 08-release-control-data
+  name: release-orchestrator-data
 spec:
   accessModes: [ReadWriteOnce]
   resources:
@@ -11,18 +11,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 08-release-control
+  name: release-orchestrator
 spec:
   replicas: 1
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: 08-release-control
+      app: release-orchestrator
   template:
     metadata:
       labels:
-        app: 08-release-control
+        app: release-orchestrator
     spec:
       securityContext:
         runAsNonRoot: true
@@ -30,7 +30,7 @@ spec:
         fsGroup: 10001
       containers:
         - name: app
-          image: 08-release-control:local
+          image: release-orchestrator:local
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8108
@@ -60,15 +60,15 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: 08-release-control-data
+            claimName: release-orchestrator-data
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: 08-release-control
+  name: release-orchestrator
 spec:
   selector:
-    app: 08-release-control
+    app: release-orchestrator
   ports:
     - port: 80
       targetPort: 8108
